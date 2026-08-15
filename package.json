@@ -1,0 +1,37 @@
+{
+  "name": "@deepseek-ai/dsh-client-ui-mermaid",
+  "description": "Client-only dsh plugin that renders Mermaid fenced code blocks as SVG diagrams in the web UI",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "mermaid",
+    "diagram",
+    "markdown"
+  ],
+  "author": "yichangyaoyue",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yichangyaoyue/dsh-client-ui-mermaid.git"
+  },
+  "dsh": {
+    "client": {
+      "platform": "web",
+      "inject": [],
+      "immediately": true
+    }
+  },
+  "license": "MIT"
+}
