@@ -1,5 +1,5 @@
 window.__ModuleLoader__.load({
-	id: "@yichangyaoyue/dsh-client-ui-mermaid",
+	id: "@moyiyaoyue/dsh-client-ui-mermaid",
 	factory: (require) => {
 		var module = { exports: {} };
 		var exports = module.exports;
@@ -24,10 +24,10 @@ window.__ModuleLoader__.load({
 			"pre.dsh-mermaid-source{margin:0;display:none}"
 		].join("\n");
 
-		var TAG_ID = "@yichangyaoyue/dsh-client-ui-mermaid/styles";
+		var TAG_ID = "@moyiyaoyue/dsh-client-ui-mermaid/styles";
 		if (typeof document !== "undefined" && document.querySelector("style[data-plugin-css=" + JSON.stringify(TAG_ID) + "]") === null) {
 			var styleTag = document.createElement("style");
-			styleTag.dataset.plugin = "@yichangyaoyue/dsh-client-ui-mermaid";
+			styleTag.dataset.plugin = "@moyiyaoyue/dsh-client-ui-mermaid";
 			styleTag.dataset.pluginCss = TAG_ID;
 			styleTag.textContent = CSS;
 			document.head.appendChild(styleTag);

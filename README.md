@@ -1,4 +1,4 @@
-# @yichangyaoyue/dsh-client-ui-mermaid
+# @moyiyaoyue/dsh-client-ui-mermaid
 
 Client-only [dsh](https://github.com/deepseek-ai/deepseek-harness) plugin that
 renders Mermaid fenced code blocks (```` ```mermaid ````) as inline SVG diagrams
@@ -17,7 +17,7 @@ in the web UI.
 ## How it works
 
 - The package declares `dsh.client.platform = "web"`, so the `client-modules`
-  host scan serves `lib/client.js` as `/plugins/@yichangyaoyue/dsh-client-ui-mermaid/client.js`
+  host scan serves `lib/client.js` as `/plugins/@moyiyaoyue/dsh-client-ui-mermaid/client.js`
   and lists it in `window.__DSH_BOOT__`.
 - The browser bundle registers a `MutationObserver` on `document.body` and
   lazily executes the vendored Mermaid engine on first use.
@@ -54,7 +54,7 @@ downloaded `mermaid.min.js`).
 Install from npm:
 
 ```powershell
-dsh plugin --profile web add @yichangyaoyue/dsh-client-ui-mermaid
+dsh plugin --profile web add @moyiyaoyue/dsh-client-ui-mermaid
 ```
 
 or, for local development, from a checkout on the same drive:
@@ -69,7 +69,7 @@ also be registered as a loader entry in the profile's `cordis.patch.yml`:
 ```yaml
 - insert:
     - id: client-ui-mermaid
-      name: '@yichangyaoyue/dsh-client-ui-mermaid'
+      name: '@moyiyaoyue/dsh-client-ui-mermaid'
 ```
 
 Restart `dsh web` (or the profile) after installing, then refresh the browser.
