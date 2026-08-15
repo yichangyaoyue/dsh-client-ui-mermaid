@@ -1,4 +1,4 @@
-# @deepseek-ai/dsh-client-ui-mermaid
+# @yichangyaoyue/dsh-client-ui-mermaid
 
 Client-only [dsh](https://github.com/deepseek-ai/deepseek-harness) plugin that
 renders Mermaid fenced code blocks (```` ```mermaid ````) as inline SVG diagrams
@@ -17,7 +17,7 @@ in the web UI.
 ## How it works
 
 - The package declares `dsh.client.platform = "web"`, so the `client-modules`
-  host scan serves `lib/client.js` as `/plugins/@deepseek-ai/dsh-client-ui-mermaid/client.js`
+  host scan serves `lib/client.js` as `/plugins/@yichangyaoyue/dsh-client-ui-mermaid/client.js`
   and lists it in `window.__DSH_BOOT__`.
 - The browser bundle registers a `MutationObserver` on `document.body` and
   lazily executes the vendored Mermaid engine on first use.
@@ -40,29 +40,36 @@ Override the fallback before the plugin applies by setting
 
 ## Rebuild
 
-Rebuild the vendored bundle and reinstall it in one step:
+Rebuild the vendored bundle and reinstall it in one step (from the repo root):
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File E:\AI\dsh\0815Test\rebuild-mermaid-plugin.ps1
+powershell -ExecutionPolicy Bypass -File .\rebuild.ps1
 ```
 
-Build sources live under `E:\AI\dsh\0815Test\mermaid-plugin-build\`
-(`client.template.js`, `build.js`, and the downloaded `mermaid.min.js`).
+Build sources live under `build/` (`client.template.js`, `build.js`, and the
+downloaded `mermaid.min.js`).
 
 ## Install
 
-Installed into the `web` profile as a pnpm-tracked dependency:
+Install from npm:
+
+```powershell
+dsh plugin --profile web add @yichangyaoyue/dsh-client-ui-mermaid
+```
+
+or, for local development, from a checkout on the same drive:
 
 ```powershell
 dsh plugin --profile web add "file:../../plugins/dsh-client-ui-mermaid"
 ```
 
-and registered as an entry in the profile's `cordis.patch.yml`:
+Because this is a client-only plugin (it declares no `dsh.bundle`), it must
+also be registered as a loader entry in the profile's `cordis.patch.yml`:
 
 ```yaml
 - insert:
     - id: client-ui-mermaid
-      name: '@deepseek-ai/dsh-client-ui-mermaid'
+      name: '@yichangyaoyue/dsh-client-ui-mermaid'
 ```
 
 Restart `dsh web` (or the profile) after installing, then refresh the browser.
